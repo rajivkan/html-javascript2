@@ -1,0 +1,31 @@
+body{
+	background: url(../images/close-box1.png) repeat #cccccc;
+
+}
+
+.welcome-text
+{
+	line-height: 1px;
+	font-family: Verdana;
+	font-size: 20px;
+	color: red;
+	text-decoration: underline;
+}
+
+/**{
+	line-height: 1px;
+	font-family: Verdana;
+	font-size: 20px;
+	color: green;
+}*/
+
+p, div{
+	line-height: 1px;
+	font-family: Verdana;
+	font-size: 20px;
+	color: green;
+}
+
+#span1{
+	color: #ff00ff;
+}
