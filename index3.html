@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+
+			@font-face {
+			    font-family: sansatioFont;
+			    src: url(fonts/sansation_light.woff);
+			}
+
+			@font-face {
+			    font-family: sansatioFont;
+			    src: url(fonts/sansation_bold.woff);
+			    font-weight: bold;
+			}
+			body{
+				font-family: Arial;
+			}
+			.custom-font{
+				font-family: sansatioFont;
+			}
+
+			.table1{
+				width:80%; background:#ccc;
+			}
+
+			table, tr, td{
+				border: 2px #ff0000 solid;
+			}
+
+		</style>
+	</head>
+	<body style="height:800px">
+		<a href="index.html">Index</a>
+		<br>
+		<a href="index2.html">Index 2</a>
+
+		<br>
+		<br>
+
+		<marquee direction="right" scrollamount="10">This is scrollable text <img src="images/apple.jpeg"> </marquee>
+
+		<!-- <marquee direction="down">This is scrollable text <img src="images/apple.jpeg"> </marquee> -->
+
+		<div class="custom-font">
+			Copyright - &#169;
+			<br>
+			Registered - &#174;
+			<br>
+			Euro - &#8364;
+			<br>
+			Sum - &sum;
+			<br>
+			<b>Trademark</b> - &#8482;
+		</div>
+		<br>
+		Audio:
+		<audio id="audioTag" controls> <!-- autoplay -->
+			<source id="audioSource" src="assets/AudioTest.ogg" type="audio/ogg">
+		</audio>
+
+
+		<br>
+		Video:
+		<video id="audioTag" controls>
+			<source id="audioSource" src="assets/echo-hereweare.mp4" type="video/mp4">
+		</video>
+
+
+		<br>
+		<br>
+
+		<table id="tbl1" class="table1">
+			<tr>
+				<td style="width:10%x;background:green; text-align:left">
+					Sl. No.
+				</td>
+				<td style="background:yellow;width:45%; text-align:center">
+					Name
+				</td>
+				<td style="background:#ccc;width:45%; text-align:right">
+					Address
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					1
+				</td>
+				<td colspan="2">
+					ABC 1
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					2
+				</td>
+				<td>
+					ABC 2
+				</td>
+				<td>
+					Address 2
+				</td>
+			</tr>
+		</table>
+		<br>
+		
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+
+	<body>
+		<div style="background: green">
+			This is a html text 
+			<br>
+			<button onclick="onClickByHtml()"> Click Me</button>
+		</div>
+		<div id="div2">
+
+		</div>
+
+		<script type="text/javascript">
+
+			function onClickByHtml(){
+				alert("This is clicked from html");
+			}
+
+			document.getElementById("div2").innerHTML = "This is a javascript text";
+			document.getElementById("div2").style.background = "yellow";
+			document.getElementById("div2").onclick = function(){
+				alert("this is clicked from javascript ");
+			}
+		</script>
+	</body>
+</html>
