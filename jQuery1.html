@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
+
+</head>
+<body>
+
+	<input id="txt" class="text-class" value="jQuery">
+
+	<script type="text/javascript">
+		//document.getElementsByTagName("body")[0].innerHTML = "This text is assigned by javascript";
+		//$("body").html("This text is assigned by jquery");
+		//alert($("body").html());
+
+		//alert($("#txt").val());
+		//$("#txt").val("modified by jquery");
+
+		//alert($(".text-class").val());
+		//$(".text-class").val("modified by jquery");
+		$(".text-class").css("color", "red").css("fontSize", "20px");
+
+		alert($(".text-class").css("fontSize"))
+	</script>
+</body>
+</html>

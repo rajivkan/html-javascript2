@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			.number2{
+				color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		Number 1: <input id="txt1" style="color:#ff0000">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Number 2: <input id="txt2">
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<input id="txtResult" readonly>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<button onclick="onAdd('+')">+</button>
+		&nbsp;
+		<button onclick="onAdd('*')">*</button>
+		&nbsp;
+		<button onclick="onAdd('-')">-</button>
+		&nbsp;
+		<button onclick="onAdd('/')">/</button>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<button onclick="onAddArrayValues()">Add Array Value</button>
+
+		<br>
+		<br>
+
+		<div id="div1"></div>
+
+		
+<br>
+<br>
+<br>
+
+<img src="images/Off.png" id="img1" onclick="onImageChange()">
+
+		<script type="text/javascript">
+
+			document.getElementById("txt2").className = "number2";
+			function onAdd(opetetor){
+				var num1 = parseInt(document.getElementById("txt1").value);
+				var num2 = parseInt(document.getElementById("txt2").value);
+
+				//var num1 = parseFloat(document.getElementById("txt1").value);
+				//var num2 = parseFloat(document.getElementById("txt2").value);
+				if(opetetor == "+"){
+					document.getElementById("txtResult").value = num1 + num2;
+				}
+				else if(opetetor == "*"){
+					document.getElementById("txtResult").value = num1 * num2;
+				}
+				else if(opetetor == "-"){
+					document.getElementById("txtResult").value = num1 - num2;
+				}
+				else if(opetetor == "/"){
+					document.getElementById("txtResult").value = num1 / num2;
+				}
+
+			}
+
+			function onImageChange(){
+				if(document.getElementById("img1").src.match("Off.png")){
+					document.getElementById("img1").src = "images/On.png"
+				}
+				else{
+					document.getElementById("img1").src = "images/Off.png"
+				}
+			}
+
+			var count = 1;
+			var timer = setInterval(function(){
+				onImageChange();
+				count++;
+				if(count == 5){
+					clearInterval(timer);
+				}
+			}, 1000)
+
+			setTimeout(function(){
+				//alert("call Once!!!");
+			}, 5000)
+
+
+			function onAddArrayValues(){
+				var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+				var sum = 0;
+				for(var i = 0; i < array.length; i++){
+					 sum = sum + array[i];
+				}
+				alert("Sum : "+ sum);
+			}
+
+			var str="";
+			var i;
+			for(i = 1; i<=5; i++){
+				for(var j=1; j<= i; j++){
+					str = str + i; //"*"
+				}
+
+				str = str + "<br>";
+			}
+
+			document.getElementById("div1").innerHTML = str;
+		</script>
+	</body>
+</html>
