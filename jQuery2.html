@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
+	<style type="text/css">
+		.div-css{
+			color: red;
+			font-size: 30px;
+		}
+		.span-css{
+			color: green;
+			font-family: "verdana";
+			background: black;
+		}
+	</style>
+</head>
+<body id="bodyTag">
+
+	<p>Paragraph 1</p><br>
+
+	<p>Paragraph 3</p><br>
+
+	<span>Span 1</span><br>
+	<p>Paragraph 3</p><br>
+
+	<span>Span 2</span><br>
+
+
+	<script type="text/javascript">
+
+		function addElements(){
+			for(var i=1; i <= 100; i++){
+				var div = $("<div>></div>");
+				div.html("This is dynamic created div "+i);
+				//div.css("color", "red");
+				//div.addClass("div-css");
+				$("#bodyTag").append(div);
+			}
+			
+		}
+
+		function addElementsByJS(){
+			for(var i=1; i <= 100; i=i+1){
+				var div = document.createElement("div");
+				div.innerHTML = "This is also dynamic created div using javascript "+i;
+				div.className = "div-css";
+				document.getElementById("bodyTag").appendChild(div);
+			}
+		}
+		//addElements();
+		addElementsByJS();
+
+		//$("p").addClass("div-css");
+		//$("span").addClass("span-css");
+
+		//var spans = document.getElementsByTagName("span");
+
+		//console.log(spans);
+		// for(var i=0; i < spans.length; i++){
+		// 	spans[i].className = "span-css";
+		// }
+
+
+	</script>
+</body>
+</html>

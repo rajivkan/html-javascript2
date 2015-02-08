@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
+	
+</head>
+<body id="bodyTag">
+
+	<table style="width:80%">
+
+		<tr>
+			<td style="width:100px">Name</td>
+			<td><input id="txtName"></td>
+		</tr>
+
+		<tr>
+			<td style="width:100px">Address</td>
+			<td><input id="txtAddress"></td>
+		</tr>
+
+		<tr>
+			<td style="width:100px">Email</td>
+			<td><input id="txtEmail"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button onclick="onAdd()">Add</button></td>
+		</tr>
+	</table>
+	
+
+	<div id="divdata">
+
+	</div>
+	<script type="text/javascript">
+		var arrayData = [];
+
+		function onAdd(){
+			var obj = {};
+
+			obj.name = $("#txtName").val();
+			obj.address = $("#txtAddress").val();
+			obj.email = $("#txtEmail").val();
+
+			arrayData.push(obj);
+
+			displayData();
+
+			$("#txtName").val("");
+			$("#txtAddress").val("");
+			$("#txtEmail").val("")
+		}
+
+		function displayData(){
+			$("#divdata").empty();
+			$.each(arrayData, function(index, item){
+				if(index < 2){
+					var spanName = $("<span></span>");
+					spanName.html("Name: "+item.name+"<br>");
+					
+					var spanAddress = $("<span></span>");
+					spanAddress.html("Address: "+item.address+"<br>");
+
+					var spanEmail = $("<span></span>");
+					spanEmail.html("Email: "+item.email+"<br><br>");
+
+					$("#divdata").append(spanName);
+					$("#divdata").append(spanAddress);
+					$("#divdata").append(spanEmail);
+				}
+			});
+		}
+
+	</script>
+</body>
+</html>

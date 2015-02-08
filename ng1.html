@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script type="text/javascript" src="js/angular/angular.min.js"></script>
+	</head>
+
+	<body ng-app="appTest">
+		<div ng-controller="appCtrl">
+			{{welcomeMessage}}
+			<br><br>
+			Search Student: &nbsp;<input ng-model="studentName">
+			<br>
+			<div>
+				<span ng-repeat="stu in students | filter:studentName | orderBy:'':fasle">{{stu}} &nbsp;&nbsp;&nbsp; {{stu | uppercase}} &nbsp;&nbsp;&nbsp; {{stu | lowercase}} <br></span>
+			</div>
+
+			<br>
+			<br>
+			<button ng-click="onClickButton()">Click Me</button><br>
+			<button onclick="onJSClickButton()">JS click event</button>
+
+		</div>
+
+		<div ng-controller="personController">
+			<br><br>
+			Search Person: &nbsp;<input ng-model="person">
+			<br>
+			<div>
+				<span ng-repeat="per in persons | filter:person | orderBy:'':fasle">Name: &nbsp; {{per.name}}, &nbsp;Address: &nbsp; {{per.address}}<br></span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var appTest = angular.module("appTest", []);
+			appTest.controller("appCtrl", ["$scope", function($scope){
+				$scope.welcomeMessage = "Welcome to AngularJS";
+				$scope.students = ["Rajesh", "Sanjay", "Sriram", "Mohit"];
+				
+				$scope.onClickButton = function(){
+					$scope.studentName = "Modified name variable";
+				};
+			}]);
+
+			appTest.controller("personController", ["$scope", function($scope){
+				$scope.persons = [{name: "Person 1", address: "Address 1"}, {name: "Person 2", address: "Address 2"}, {name: "Person 3", address: "Address 3"}, {name: "Person 4", address: "Address 4"}, {name: "Person 5", address: "Address 5"}];
+			}])
+
+			var onJSClickButton = function(){
+				alert("Call");
+			}
+		</script>
+	</body>
+</html>
