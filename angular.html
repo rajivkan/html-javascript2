@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				margin:0px;
+				padding: 0px;
+			}
+		</style>
+		<script type="text/javascript" src="js/angular/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular/angular-route.min.js"></script>
+		
+		<script type="text/javascript">
+			var appSample = angular.module("appSample", ["ngRoute"]);
+
+			appSample.config(['$routeProvider',
+			    function($routeProvider) {
+			        $routeProvider
+			            .when('/', {
+			                templateUrl: 'template/home.html',
+			                controller: 'homeViewCtrl'
+			            })
+			            .when('/about', {
+			                templateUrl: 'template/about.html',
+			                controller: 'aboutViewCtrl'
+			            })
+			            .when('/contact', {
+			                templateUrl: 'template/contact.html',
+			                controller: 'contactViewCtrl'
+			            })
+			            .when('/register', {
+			                templateUrl: 'template/registration.html',
+			                controller: "registerCtrl"
+			            })
+			    }
+			]);
+
+			appSample.controller("homeViewCtrl", ["$scope", function($scope){
+				$scope.message = "Welcome to Sample Application";
+				$scope.displayButton = false;
+				$scope.onMessage = function(){
+					alert('call!');
+				}
+			}]);
+
+			appSample.controller("aboutViewCtrl", ["$scope", function($scope){
+				
+			}]);
+
+			appSample.controller("contactViewCtrl", ["$scope", function($scope){
+				
+			}]);
+
+			appSample.controller("registerCtrl", ["$scope", function($scope){
+				$scope.user = "User 1";
+				$scope.email = "user@test.com"
+			}]);
+		</script>
+	</head>
+	<body ng-app="appSample">
+		<table style="width:100%">
+			<tr>
+				<td style="height: 80px;background:#ccc; text-align:center">
+					Sample project of AngularJS
+				</td>
+			</tr>
+			<tr>
+				<td style="min-height:500px;display:block;">
+					<table style="width:100%">
+						<tr>
+							<td style="width:130px">
+								<table style="width:100%">
+									<tr>
+										<td>
+											<a href="#/">Home</a>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<a href="#/about">About</a>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<a href="#/contact">Contact</a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="#/register">Register</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<div ng-view></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td style="height:30px; background:#ccc; text-align:center">
+					Footer Section
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
