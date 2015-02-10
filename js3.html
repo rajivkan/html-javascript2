@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+
+			function onReset(){
+				document.getElementById("txtName").value = "";
+				document.getElementById("txtAddress").value = "";
+				document.getElementById("txtEmail").value = "";
+				document.getElementById("txtPassword").value = "";
+			}
+
+			function onSubmit(){
+				var name = document.getElementById("txtName");
+				var address = document.getElementById("txtAddress");
+				var email = document.getElementById("txtEmail");
+				var password = document.getElementById("txtPassword");
+				if(name.value == ""){
+					alert("Name is required.");
+					name.focus();
+					return false;
+				}
+				if(address.value == ""){
+					alert("Address is required.");
+					address.focus();
+					return false;
+				}
+				if(email.value == ""){
+					alert("Email is required.");
+					email.focus();
+					return false;
+				}
+
+				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				if (!filter.test(email.value)) {
+			    	alert('Please provide a valid email address');
+			    	email.focus();
+					return false;
+			    }
+
+				if(password.value == ""){
+					alert("Password is required.");
+					password.focus();
+					return false;
+				}
+
+				alert("Form is valid");
+			}
+		</script>
+	</head>
+	<body>
+		<table style="width: 100%; background: #ccc">
+			<tr>
+				<td style="width:120px">
+					Name:
+				</td>
+				<td>
+					<input id="txtName">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Address:
+				</td>
+				<td>
+					<input id="txtAddress">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Email:
+				</td>
+				<td>
+					<input id="txtEmail">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Password:
+				</td>
+				<td>
+					<input id="txtPassword">
+				</td>
+			</tr>
+			<tr>
+				<td>
+
+				</td>
+				<td>
+					<button id="txtReset" onclick="onReset()">Reset</button> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button id="btnSubmit" onclick="onSubmit()">Submit</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
