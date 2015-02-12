@@ -1,0 +1,43 @@
+<div>
+	<h4>Student List</h4>
+	
+	<table style="width:100%" class="table">
+		<tr>
+			<td>
+				Search:
+			</td>
+			<td>
+				<input id="txtSearch">
+			</td>
+		</tr>
+		<tr style="font-weight:bold;">
+			<td style="width:100px">
+				Student Id
+			</td>
+			<td>
+				Name
+			</td>
+			<td>
+				Address
+			</td>
+			<td style="width:80px">
+				Action
+			</td>
+		</tr>
+
+		<tr ng-repeat="student in students | orderBy:'name':false">
+			<td style="width:100px">
+				{{student.studentId}}
+			</td>
+			<td>
+				{{student.name}}
+			</td>
+			<td>
+				{{student.address}}
+			</td>
+			<td>
+				<a href="#/student/{{student.studentId}}">View</a>
+			</td>
+		</tr>
+	</table>
+</div>

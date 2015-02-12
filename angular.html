@@ -6,6 +6,13 @@
 				margin:0px;
 				padding: 0px;
 			}
+			.table{
+				border: 1px #ccc solid;
+			}
+
+			.table td, .table tr{
+				border: 1px #ccc solid;
+			}
 		</style>
 		<script type="text/javascript" src="js/angular/angular.min.js"></script>
 		<script type="text/javascript" src="js/angular/angular-route.min.js"></script>
@@ -31,6 +38,14 @@
 			            .when('/register', {
 			                templateUrl: 'template/registration.html',
 			                controller: "registerCtrl"
+			            })
+			            .when('/student', {
+			                templateUrl: 'template/students.html',
+			                controller: "studentCtrl"
+			            })
+			            .when('/student/:studentId', {
+			                templateUrl: 'template/student-details.html',
+			                controller: "studentDetailCtrl"
 			            })
 			    }
 			]);
@@ -62,6 +77,29 @@
 					templateUrl: "components/login.html"
 				}
 			}]);
+			var studentsList = [];
+			appSample.controller("studentCtrl", ["$scope", "$http", function($scope, $http){
+				$http.get("data/data.json")
+				.success(function(result){
+					$scope.students = result.student;
+					studentsList = $scope.students;
+				})
+				.error(function(err){
+					alert("Unable to load student data list. Please try again.")
+				});
+			}]);
+
+			appSample.controller("studentDetailCtrl", ["$scope", "$routeParams", function($scope, $routeParams){
+				
+				for(var i = 0; i < studentsList.length; i++){
+					if(studentsList[i].studentId == $routeParams.studentId){
+						$scope.student = studentsList[i];
+						break;
+					}
+				}
+
+			}]);
+
 		</script>
 	</head>
 	<body ng-app="appSample">
@@ -97,6 +135,12 @@
 									<tr>
 										<td>
 											<a href="#/register">Register</a>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<a href="#/student">Students</a>
 										</td>
 									</tr>
 								</table>
