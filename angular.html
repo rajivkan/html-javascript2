@@ -16,91 +16,12 @@
 		</style>
 		<script type="text/javascript" src="js/angular/angular.min.js"></script>
 		<script type="text/javascript" src="js/angular/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
 		
-		<script type="text/javascript">
-			var appSample = angular.module("appSample", ["ngRoute"]);
+		<script type="text/javascript" src="js/angular/app.js"></script>
+		<script type="text/javascript" src="js/angular/controllers.js"></script>
+		<script type="text/javascript" src="js/angular/directives.js"></script>
 
-			appSample.config(['$routeProvider',
-			    function($routeProvider) {
-			        $routeProvider
-			            .when('/', {
-			                templateUrl: 'template/home.html',
-			                controller: 'homeViewCtrl'
-			            })
-			            .when('/about', {
-			                templateUrl: 'template/about.html',
-			                controller: 'aboutViewCtrl'
-			            })
-			            .when('/contact', {
-			                templateUrl: 'template/contact.html',
-			                controller: 'contactViewCtrl'
-			            })
-			            .when('/register', {
-			                templateUrl: 'template/registration.html',
-			                controller: "registerCtrl"
-			            })
-			            .when('/student', {
-			                templateUrl: 'template/students.html',
-			                controller: "studentCtrl"
-			            })
-			            .when('/student/:studentId', {
-			                templateUrl: 'template/student-details.html',
-			                controller: "studentDetailCtrl"
-			            })
-			    }
-			]);
-
-			appSample.controller("homeViewCtrl", ["$scope", function($scope){
-				$scope.message = "Welcome to Sample Application";
-				$scope.displayButton = false;
-				$scope.onMessage = function(){
-					alert('call!');
-				}
-			}]);
-
-			appSample.controller("aboutViewCtrl", ["$scope", function($scope){
-				
-			}]);
-
-			appSample.controller("contactViewCtrl", ["$scope", function($scope){
-				
-			}]);
-
-			appSample.controller("registerCtrl", ["$scope", function($scope){
-				$scope.user = "User 1";
-				$scope.email = "user@test.com"
-			}]);
-
-			appSample.directive("login", [function(){
-				return {
-					restrict: "C", // E, A, C
-					templateUrl: "components/login.html"
-				}
-			}]);
-			var studentsList = [];
-			appSample.controller("studentCtrl", ["$scope", "$http", function($scope, $http){
-				$http.get("data/data.json")
-				.success(function(result){
-					$scope.students = result.student;
-					studentsList = $scope.students;
-				})
-				.error(function(err){
-					alert("Unable to load student data list. Please try again.")
-				});
-			}]);
-
-			appSample.controller("studentDetailCtrl", ["$scope", "$routeParams", function($scope, $routeParams){
-				
-				for(var i = 0; i < studentsList.length; i++){
-					if(studentsList[i].studentId == $routeParams.studentId){
-						$scope.student = studentsList[i];
-						break;
-					}
-				}
-
-			}]);
-
-		</script>
 	</head>
 	<body ng-app="appSample">
 		<table style="width:100%">
@@ -113,7 +34,7 @@
 				<td style="min-height:500px;display:block;">
 					<table style="width:100%">
 						<tr>
-							<td style="width:130px">
+							<td style="width:130px;vertical-align: top;">
 								<table style="width:100%">
 									<tr>
 										<td>
